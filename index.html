@@ -1,0 +1,43 @@
+<html>
+
+    <head>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+        <script src="components.js"></script>
+        <script src="purchase.js"></script>
+    </head>
+
+    <body>
+        <div id="app"></div>
+    </body>
+
+    <script>
+      
+        const app = Vue.createApp({
+            template: `<PurchaseLineView :purchase_line="purchase_line"></PurchaseLineView>`,
+            components: {
+                PurchaseLineView
+            },
+            setup() {
+                const purchase_line = Vue.reactive({
+                    supplier_number: '1234',
+                    name: 'Varenavn',
+                    locked: 1,
+                    currency_id: "USD",
+                    missing_f: 117
+                });
+                return {
+                    purchase_line
+                }
+            }
+        });
+
+        app.mount('#app')
+
+      </script>
+</html>

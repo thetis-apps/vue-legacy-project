@@ -1,0 +1,616 @@
+<form autocomplete="off" id="form" changed="yes" save_allow="1" func="purchaseLineSave" value="97347"
+    form_name="undefined" data-validation="true">
+    <div id="edit_win_1" class="edit_win" style="height: 1053px; float: none; min-width: fit-content; width: 1099px;">
+        <div id="root" class="tab_content" style="display: block;">
+            <p class="brk-next"></p>
+            <table id="undefined" class="tltable tlform ">
+                <tbody>
+                    <tr>
+                        <th class="" tooltip_id="purchaseLineCollectData.object_id" label-for="object_id"
+                            style="width: 23%; text-align:;">Lager med batch<img class="tooltip"
+                                src="./imgs/question.png" style="width: 14px; font-size: 10px;" id="251224"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.supplier_number" label-for="supplier_number"
+                            style="width: 15%; text-align:;">Lev. nummer<img class="tooltip" src="./imgs/question.png"
+                                style="width: 14px; font-size: 10px;" id="251225"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.name" label-for="name"
+                            style="width: 26%; text-align:;">Navn<img class="tooltip" src="./imgs/question.png"
+                                style="width: 14px; font-size: 10px;" id="251226"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.order_units_f" label-for="order_units_f"
+                            style="width: 12%; text-align:right; padding-right: 10px;">Bestil antal<img class="tooltip"
+                                src="./imgs/question.png" style="width: 14px; font-size: 10px;" id="251227"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.unit" label-for="unit"
+                            style="width: 12%; text-align:center;">Enhed<img class="tooltip" src="./imgs/question.png"
+                                style="width: 14px; font-size: 10px;" id="237355055" ref="purchaseLineCollectData.unit">
+                        </th>
+                        <th class="" tooltip_id="purchaseLineCollectData.order_price_f" label-for="order_price_f"
+                            style="width: 12%; text-align:right; padding-right: 10px;">Pris pr. enhed</th>
+                    </tr>
+                    <tr>
+                        <td class="no_wrap" style="width:calc(23% - 0px);;">
+                            <select name="object_id" id="object_id" style="text-align:" value="[object Object]"
+                                class="loaddata select2 no-print select2-hidden-accessible" loaddata="genobjLoadObjData"
+                                loaddata_arg="JOIN:1:supplier:11762:supplier_number,supplier_name"
+                                placeholder="Indtast del af lager med batch navn/nummer"
+                                onchange="selectChange(this,&quot;genobj.purchaseLineInputChange&quot;,&quot;name&quot;)"
+                                tabindex="-1" aria-hidden="true" disabled="disabled">
+                                <option value="812172" selected="">601</option>
+                            </select>
+                            <span
+                                class="select2 select2-container select2-container--default select2-container--disabled"
+                                dir="ltr" style="width: calc(100% - 10px);">
+                                <span class="selection">
+                                    <span class="select2-selection select2-selection--single" role="combobox"
+                                        aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"
+                                        tabindex="-1" aria-labelledby="select2-object_id-container">
+                                        <span class="select2-selection__rendered" id="select2-object_id-container"
+                                            title="601">
+                                            <span>601</span>
+                                        </span>
+                                        <span class="select2-selection__arrow" role="presentation"><b
+                                                role="presentation"></b></span></span></span><span
+                                    class="dropdown-wrapper" aria-hidden="true"></span></span><span
+                                class="icon-eye select2-tooltip tooltip" tooltip_func="genobjTooltipLoader"
+                                select_name="object_id"></span>
+                        </td>
+                        <td style="width:calc(15% - 0px);;"><input type="text" name="supplier_number"
+                                id="supplier_number" style="text-align:" value="601" readonly="" tabindex="-1"
+                                placeholder="Samme som intern" disabled="disabled"></td>
+                        <td style="width:calc(26% - 0px);;"><input type="text" name="name" id="name" style="text-align:"
+                                value="Rose - Gul" readonly="" tabindex="-1" placeholder="Navn på vare"
+                                disabled="disabled"></td>
+                        <td style="width:calc(12% - 0px);;"><input type="text" name="order_units_f" id="order_units_f"
+                                style="text-align:right" value="2,00" readonly="" tabindex="-1"
+                                placeholder="Antal af varen" data-validation="true" disabled="disabled"></td>
+                        <td style="width:calc(12% - 0px);;"><input type="text" name="unit" id="unit"
+                                style="text-align:center" value="stk" readonly="" tabindex="-1"
+                                placeholder="stk, meter, liter, mv." disabled="disabled"></td>
+                        <td style="width:calc(12% - 0px);;"><input type="text" name="order_price_f" id="order_price_f"
+                                style="text-align:right" value="30,00" readonly="" tabindex="-1" data-validation="true"
+                                disabled="disabled"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p></p>
+            <p class="brk-next"><input type="hidden" name="order_units_per_colli_i" id="order_units_per_colli_i"
+                    value="1" style="color: rgb(73, 144, 196);"></p>
+            <p class="brk-next"></p>
+            <table id="" class="tltable tlform ">
+                <tbody>
+                    <tr>
+                        <th class="" tooltip_id="purchaseLineCollectData.description" label-for="description"
+                            style="width: 38%; text-align:left;">Vare beskrivelse</th>
+                        <th class="" tooltip_id="purchaseLineCollectData.purchase_info" label-for="purchase_info"
+                            style="width: 38%; text-align:left;">Leverandør vare information</th>
+                        <th class="" tooltip_id="purchaseLineCollectData.colli_display_info"
+                            label-for="colli_display_info" style="width: 11%; text-align:center;"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.currency_id" label-for="currency_id"
+                            style="width: 12%; text-align:right; padding-right: 10px;">Valutakode<img class="tooltip"
+                                src="./imgs/question.png" style="width: 14px; font-size: 10px;" id="237596977"
+                                ref="purchaseLineCollectData.currency_id"></th>
+                    </tr>
+                    <tr>
+                        <td style="width:calc(38% - 0px);;">
+                            <div class="formating mce-content-body mce-content-readonly" name="description" id="mce_10"
+                                contenteditable="false">
+                                <p>special&lt;&gt;*%:&amp;/\_ ?.#+</p>
+                            </div><input type="hidden" name="mce_10">
+                        </td>
+                        <td style="width:calc(38% - 0px);;"><textarea name="purchase_info" readonly="" tabindex="-1"
+                                style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 60px; color: rgb(35, 57, 89);"
+                                disabled="disabled"></textarea></td>
+                        <td style="width:calc(11% - 0px);;"><span id="colli_display_info" name="undefined"
+                                style="width: 100%;"></span></td>
+                        <td style="width:calc(12% - 0px);;"><select name="currency_id" id="currency_id"
+                                style="text-align: right; color: rgb(73, 144, 196);" value="[object Object]"
+                                class="select2 no-print select2-hidden-accessible" tabindex="-1" aria-hidden="true"
+                                disabled="disabled"
+                                onchange="selectChange(this,&quot;supplierCurrencyChange&quot;,&quot;price_f&quot;)">
+                                <option value="USD">USD</option>
+                                <option value="AUD">AUD</option>
+                                <option value="BRL">BRL</option>
+                                <option value="GBP">GBP</option>
+                                <option value="BGN">BGN</option>
+                                <option value="CAD">CAD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="PHP">PHP</option>
+                                <option value="HKD">HKD</option>
+                                <option value="INR">INR</option>
+                                <option value="IDR">IDR</option>
+                                <option value="ISK">ISK</option>
+                                <option value="ILS">ILS</option>
+                                <option value="JPY">JPY</option>
+                                <option value="CNY">CNY</option>
+                                <option value="MYR">MYR</option>
+                                <option value="MXN">MXN</option>
+                                <option value="NZD">NZD</option>
+                                <option value="NOK">NOK</option>
+                                <option value="PLN">PLN</option>
+                                <option value="RON">RON</option>
+                                <option value="RUB">RUB</option>
+                                <option value="CHF">CHF</option>
+                                <option value="XDR">XDR</option>
+                                <option value="SGD">SGD</option>
+                                <option value="SEK">SEK</option>
+                                <option value="ZAR">ZAR</option>
+                                <option value="KRW">KRW</option>
+                                <option value="THB">THB</option>
+                                <option value="CZK">CZK</option>
+                                <option value="TRY">TRY</option>
+                                <option value="HUF">HUF</option>
+                                <option value="DKK" selected="">DKK</option>
+                                <option value="EUR (Fast kurs). (Fast kurs)">EUR (Fast kurs). (Fast kurs)</option>
+                                <option value="TRACELINKAROOS (Fast kurs)">TRACELINKAROOS (Fast kurs)</option>
+                                <option value="EUR (Fast kurs)">EUR (Fast kurs)</option>
+                            </select><span
+                                class="select2 select2-container select2-container--default select2-container--disabled"
+                                dir="ltr" style="width: calc(100% - 10px);"><span class="selection"><span
+                                        class="select2-selection select2-selection--single" role="combobox"
+                                        aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"
+                                        tabindex="-1" aria-labelledby="select2-currency_id-container"><span
+                                            class="select2-selection__rendered" id="select2-currency_id-container"
+                                            title="DKK"><span>DKK</span></span><span class="select2-selection__arrow"
+                                            role="presentation"><b role="presentation"></b></span></span></span><span
+                                    class="dropdown-wrapper" aria-hidden="true"></span></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p></p>
+            <p class="brk-next"></p>
+            <table id="undefined" class="tltable tlform ">
+                <tbody>
+                    <tr>
+                        <th class="" tooltip_id="purchaseLineCollectData.exp_delivery_dt" label-for="exp_delivery_dt"
+                            style="width: 100%; text-align:;">Forventet leveret<img class="tooltip"
+                                src="./imgs/question.png" style="width: 14px; font-size: 10px;" id="251211"></th>
+                    </tr>
+                    <tr>
+                        <td style="width:calc(100% - 0px);;">
+                            <input type="text" list="purchaseLineSave_exp_delivery_dt"
+                                class="date_time" name="exp_delivery_dt" id="exp_delivery_dt" style="text-align:left"
+                                value="" disabled="disabled"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p></p>
+            <p class="brk-next"></p>
+            <hr>
+            <p></p>
+            <p class="brk-next"><span class=""
+                    tooltip_id="purchaseLineCollectData.line_metadata_1">Note</span><br><input type="text" class="text"
+                    name="line_metadata_1" value="" disabled="disabled"></p>
+            <p class="brk-next"></p>
+            <hr>
+            <p></p>
+            <p class="brk-next"></p>
+            <table id="undefined" class="tltable tlform ">
+                <tbody>
+                    <tr>
+                        <th class="" tooltip_id="purchaseLineCollectData." label-for=""
+                            style="width: 52%; text-align:right; padding-right: 10px;"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.total_consumption_cy"
+                            label-for="total_consumption_cy" style="width: 12%; text-align:right; padding-right: 10px;">
+                            Vareforbrug i alt<img class="tooltip" src="./imgs/question.png"
+                                style="width: 14px; font-size: 10px;" id="251219"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData." label-for=""
+                            style="width: 12%; text-align:right; padding-right: 10px;"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.recv_total_price_cy"
+                            label-for="recv_total_price_cy" style="width: 12%; text-align:right; padding-right: 10px;">
+                            Leverandør pris i alt<img class="tooltip" src="./imgs/question.png"
+                                style="width: 14px; font-size: 10px;" id="251220"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.recv_price_cy" label-for="recv_price_cy"
+                            style="width: 12%; text-align:right; padding-right: 10px;">Leverandør pris pr. enhed<img
+                                class="tooltip" src="./imgs/question.png" style="width: 14px; font-size: 10px;"
+                                id="251221"></th>
+                    </tr>
+                    <tr>
+                        <td style="width:calc(52% - 0px);;"></td>
+                        <td style="width:calc(12% - 0px);;"><input type="text" name="total_consumption_cy"
+                                id="total_consumption_cy" style="text-align:right" value="30,00" readonly=""
+                                tabindex="-1" data-validation="true" disabled="disabled"></td>
+                        <td style="width:calc(12% - 0px);;"></td>
+                        <td style="width:calc(12% - 0px);;"><input type="text"
+                                list="purchaseLineSave_recv_total_price_cy" class="text"
+                                onkeyup="inputChange(this,&quot;genobj.genobj_purchase.calcTotalOnLinePopup&quot;,&quot;recv_total_price_cy&quot;)"
+                                name="recv_total_price_cy" id="recv_total_price_cy" style="text-align:right"
+                                value="68,00" data-validation="true" disabled="disabled"></td>
+                        <td style="width:calc(12% - 0px);;"><input type="text" list="purchaseLineSave_recv_price_cy"
+                                class="text"
+                                onkeyup="inputChange(this,&quot;genobj.genobj_purchase.calcTotalOnLinePopup&quot;,&quot;recv_price_cy&quot;)"
+                                name="recv_price_cy" id="recv_price_cy" style="text-align:right" value="34,00"
+                                data-validation="true" disabled="disabled"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p></p>
+            <p class="brk-next"></p>
+            <table id="undefined" class="tltable tlform ">
+                <tbody>
+                    <tr>
+                        <th class="" tooltip_id="purchaseLineCollectData.locked" label-for="locked"
+                            style="width: 25%; text-align:;"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.do_rest_recv" label-for="do_rest_recv"
+                            style="width: 25%; text-align:;"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.negative" label-for="negative"
+                            style="width: 15%; text-align:;"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.missing_f" label-for="missing_f"
+                            style="width: 15%; text-align:right; padding-right: 10px;">Mangler modtagelse<img
+                                class="tooltip" src="./imgs/question.png" style="width: 14px; font-size: 10px;"
+                                id="250750336" ref="purchaseLineCollectData.missing_f"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.recv_f" label-for="recv_f"
+                            style="width: 15%; text-align:right; padding-right: 10px;">Modtaget<img class="tooltip"
+                                src="./imgs/question.png" style="width: 14px; font-size: 10px;" id="251043158"
+                                ref="purchaseLineCollectData.recv_f"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.recv_units_f" label-for="recv_units_f"
+                            style="width: 15%; text-align:right; padding-right: 10px;">Modtaget i alt<img
+                                class="tooltip" src="./imgs/question.png" style="width: 14px; font-size: 10px;"
+                                id="251887001" ref="purchaseLineCollectData.recv_units_f"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.price_f" label-for="price_f"
+                            style="width: 15%; text-align:right; padding-right: 10px;">Total modtaget kostpris pr.
+                            enhed<img class="tooltip" src="./imgs/question.png" style="width: 14px; font-size: 10px;"
+                                id="252644346" ref="purchaseLineCollectData.price_f"></th>
+                    </tr>
+                    <tr>
+                        <td style="width:calc(25% - 0px);;"><span class="newcheckbox"><input type="checkbox"
+                                    name="locked" tooltip_id="purchaseLineCollectData.locked" id="locked"
+                                    checked=""><label for="locked">✓</label></span><span>Luk linjen - modt. slut<img
+                                    class="tooltip" src="./imgs/question.png" style="width: 14px; font-size: 10px;"
+                                    id="251214"></span></td>
+                        <td style="width:calc(25% - 0px);;">
+                            <span class="newcheckbox">
+                            
+                                <input type="checkbox"
+                                        name="do_rest_recv" tooltip_id="purchaseLineCollectData.do_rest_recv"
+                                        id="do_rest_recv" disabled="disabled">
+                                <label for="do_rest_recv">✓</label>
+                            </span>
+                            <span>Udlign mgl. modt.
+                                <img class="tooltip"
+                                        src="./imgs/question.png" style="width: 14px; font-size: 10px;" id="251217"></span>
+                        </td>
+                        <td style="width:calc(15% - 0px);;"><span class="newcheckbox"><input type="checkbox"
+                                    name="negative" tooltip_id="purchaseLineCollectData.negative" id="negative"
+                                    onclick="checkboxChange(this,'purchaseLineCollectData.clickNegative','negative')"
+                                    disabled="disabled"><label for="negative">✓</label></span><span>Retur<img
+                                    class="tooltip" src="./imgs/question.png" style="width: 14px; font-size: 10px;"
+                                    id="251215"></span></td>
+                        <td style="width:calc(15% - 0px);;"><input type="text" name="missing_f" id="missing_f"
+                                style="text-align:right" value="0,00" readonly="" tabindex="-1" data-validation="true"
+                                disabled="disabled"></td>
+                        <td style="width:calc(15% - 0px);;"><input type="text" list="purchaseLineSave_recv_f"
+                                class="text"
+                                onkeyup="inputChange(this,&quot;genobj.genobj_purchase.calcTotalOnLinePopup&quot;,&quot;all&quot;)"
+                                name="recv_f" id="recv_f" style="text-align: right; background: rgba(0, 215, 140, 0.2);"
+                                value="0,00" data-validation="true" disabled="disabled"></td>
+                        <td style="width:calc(15% - 0px);;"><input type="text" name="recv_units_f" id="recv_units_f"
+                                style="text-align:right" value="2,00" readonly="" tabindex="-1" data-validation="true"
+                                disabled="disabled"></td>
+                        <td style="width:calc(15% - 0px);;"><input type="text" name="price_f" id="price_f"
+                                style="text-align:right" value="45,00" readonly="" tabindex="-1" data-validation="true"
+                                disabled="disabled"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p></p>
+            <p class="brk-next"></p>
+            <hr>
+            <p></p>
+            <p class="brk-next"></p>
+            <table id="undefined" class="tltable tlform ">
+                <tbody>
+                    <tr>
+                        <th class="" tooltip_id="purchaseLineCollectData.stockloc_id" label-for="stockloc_id"
+                            style="width: 85%; text-align:;">Lagerlokation<img class="tooltip" src="./imgs/question.png"
+                                style="width: 14px; font-size: 10px;" id="252137817"
+                                ref="purchaseLineCollectData.stockloc_id"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.stocklocShowPopup"
+                            label-for="stocklocShowPopup" style="width: 15%; text-align:;"></th>
+                    </tr>
+                    <tr>
+                        <td style="width:calc(85% - 0px);;">
+                            <select name="stockloc_id" id="stockloc_id"
+                                style="text-align:left" value="[object Object]"
+                                class="select2 no-print select2-hidden-accessible" tabindex="-1" aria-hidden="true"
+                                disabled="disabled">
+                                <option value="0">-- Ingen --</option>
+                                <option value="2030974">Hal A</option>
+                                <option value="777673">Hal B</option>
+                                <option value="2346899" icon_badge="icon-star">Hal C</option>
+                                <option value="1318860">Hal D</option>
+                                <option value="2346904">Herning</option>
+                                <option value="733044">Hovedlager</option>
+                                <option value="795948">Lægges i loop 1</option>
+                                <option value="795949">Lægges i loop 2</option>
+                                <option value="2361210">Nord</option>
+                                <option value="771568">R1H1</option>
+                                <option value="771570">R1H3</option>
+                                <option value="771571">R1H4</option>
+                                <option value="771572">R1H5</option>
+                                <option value="771573">R2H1</option>
+                                <option value="771574">R2H2</option>
+                                <option value="751979">Randers</option>
+                                <option value="2681771">TRANSIT</option>
+                                <option value="1048162">Tracelink office</option>
+                                <option value="1954686">Øverste hylde</option>
+                            </select><span
+                                class="select2 select2-container select2-container--default select2-container--disabled"
+                                dir="ltr" style="width: calc(100% - 10px);"><span class="selection"><span
+                                        class="select2-selection select2-selection--single" role="combobox"
+                                        aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"
+                                        tabindex="-1" aria-labelledby="select2-stockloc_id-container"><span
+                                            class="select2-selection__rendered" id="select2-stockloc_id-container"
+                                            title="-- Ingen --"><span>-- Ingen --</span></span><span
+                                            class="select2-selection__arrow" role="presentation"><b
+                                                role="presentation"></b></span></span></span><span
+                                    class="dropdown-wrapper" aria-hidden="true"></span></span></td>
+                        <td style="width:calc(15% - 0px);;"><button type="button"
+                                class="tl-button gray-button icon-popup" name="stocklocShowPopup" id="stocklocShowPopup"
+                                style="text-align:left" value="" func="stocklocShowPopup"
+                                tooltip_id="purchaseLineCollectData.stocklocShowPopup">Åben lokation</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p></p>
+            <p class="brk-next"></p>
+            <h3 class=" " tooltip_id="purchaseLineCollectData.undefined">Batch information</h3>
+            <p></p>
+            <p class="brk-next"></p>
+            <table id="undefined" class="tltable tlform ">
+                <tbody>
+                    <tr>
+                        <th class="" tooltip_id="purchaseLineCollectData.batch_name" label-for="batch_name"
+                            style="width: 100%; text-align:;">Batch Navn</th>
+                        <th class="" tooltip_id="purchaseLineCollectData.ballance_dt" label-for="ballance_dt"
+                            style="width: 0%; text-align:;"></th>
+                    </tr>
+                    <tr>
+                        <td style="width:calc(100% - 0px);;"><input type="text" list="purchaseLineSave_batch_name"
+                                class="text" name="batch_name" id="batch_name" style="text-align:left"
+                                value="100761 - 601" disabled="disabled"></td>
+                        <td style="width:calc(0% - 0px);;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p></p>
+            <p class="brk-next"></p>
+            <hr>
+            <p></p>
+            <p class="brk-next"></p>
+            <table id="undefined" class="tltable tlform ">
+                <tbody>
+                    <tr>
+                        <th class="" tooltip_id="purchaseLineCollectData.s1_unit_co2e" label-for="s1_unit_co2e"
+                            style="width: 33%; text-align:;">S1 CO2e pr. enhed<img class="tooltip"
+                                src="./imgs/question.png" style="width: 14px; font-size: 10px;" id="269101"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.s2_unit_co2e" label-for="s2_unit_co2e"
+                            style="width: 33%; text-align:;">S2 CO2e pr. enhed<img class="tooltip"
+                                src="./imgs/question.png" style="width: 14px; font-size: 10px;" id="269102"></th>
+                        <th class="" tooltip_id="purchaseLineCollectData.s3_unit_co2e" label-for="s3_unit_co2e"
+                            style="width: 33%; text-align:;">S3 CO2e pr. enhed<img class="tooltip"
+                                src="./imgs/question.png" style="width: 14px; font-size: 10px;" id="269103"></th>
+                    </tr>
+                    <tr>
+                        <td style="width:calc(33% - 0px);;"><input type="text" list="purchaseLineSave_s1_unit_co2e"
+                                class="text" name="s1_unit_co2e" id="s1_unit_co2e" style="text-align:left" value="0,00"
+                                disabled="disabled"></td>
+                        <td style="width:calc(33% - 0px);;"><input type="text" list="purchaseLineSave_s2_unit_co2e"
+                                class="text" name="s2_unit_co2e" id="s2_unit_co2e" style="text-align:left" value="0,00"
+                                disabled="disabled"></td>
+                        <td style="width:calc(33% - 0px);;"><input type="text" list="purchaseLineSave_s3_unit_co2e"
+                                class="text" name="s3_unit_co2e" id="s3_unit_co2e" style="text-align:left" value="0,00"
+                                disabled="disabled"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p></p>
+            <p class="brk-next"></p>
+            <hr>
+            <p></p>
+            <p class="brk-next"></p>
+            <hr>
+            <p></p>
+            <p class="brk-next"></p>
+            <h3 class=" " tooltip_id="purchaseLineCollectData.purchase_recv_log">Modtagelseslog (1)<img class="tooltip"
+                    src="./imgs/question.png" style="width: 14px; font-size: 10px;" id="252350861"
+                    ref="purchaseLineCollectData.purchase_recv_log"></h3>
+            <p></p>
+            <p class="brk-next"></p>
+            <div class="table-scroll">
+                <table id="log"
+                    class="tlarray tltable filter-editable rows tablesorter table-width-8 tablesorter-default tablesorter32c864d55ce0b"
+                    style="" undefined="" role="grid">
+                    <thead>
+                        <tr role="row" class="tablesorter-headerRow">
+                            <th tooltip_id="purchaseLineCollectData.create_date" id="create_date"
+                                class="tablesorter-header header tablesorter-headerUnSorted"
+                                style="width: 11.25%; text-align: left; user-select: none;" data-column="0" tabindex="0"
+                                scope="col" role="columnheader" aria-disabled="false" aria-controls="log"
+                                unselectable="on" aria-sort="none"
+                                aria-label="Dato: No sort applied, activate to apply an ascending sort">
+                                <div class="tablesorter-header-inner">Dato</div>
+                            </th>
+                            <th tooltip_id="purchaseLineCollectData.create_user_name" id="create_user_name"
+                                class="tablesorter-header header tablesorter-headerUnSorted"
+                                style="width: 11.25%; text-align: left; user-select: none;" data-column="1" tabindex="0"
+                                scope="col" role="columnheader" aria-disabled="false" aria-controls="log"
+                                unselectable="on" aria-sort="none"
+                                aria-label="Bruger: No sort applied, activate to apply an ascending sort">
+                                <div class="tablesorter-header-inner">Bruger</div>
+                            </th>
+                            <th tooltip_id="purchaseLineCollectData.recv_units_f" id="recv_units_f"
+                                class="right tablesorter-header header tablesorter-headerUnSorted"
+                                style="width: 11.25%; text-align: right; padding-right: 10px; user-select: none;"
+                                data-column="2" tabindex="0" scope="col" role="columnheader" aria-disabled="false"
+                                aria-controls="log" unselectable="on" aria-sort="none"
+                                aria-label="Modtaget antal: No sort applied, activate to apply an ascending sort">
+                                <div class="tablesorter-header-inner">Modtaget antal<img class="tooltip"
+                                        src="./imgs/question.png" style="width: 14px; font-size: 10px;" id="251887001"
+                                        ref="purchaseLineCollectData.recv_units_f"></div>
+                            </th>
+                            <th tooltip_id="purchaseLineCollectData.recv_unit_price_cy" id="recv_unit_price_cy"
+                                class="right tablesorter-header header tablesorter-headerUnSorted"
+                                style="width: 11.25%; text-align: right; padding-right: 10px; user-select: none;"
+                                data-column="3" tabindex="0" scope="col" role="columnheader" aria-disabled="false"
+                                aria-controls="log" unselectable="on" aria-sort="none"
+                                aria-label="Pris pr. enhed: No sort applied, activate to apply an ascending sort">
+                                <div class="tablesorter-header-inner">Pris pr. enhed</div>
+                            </th>
+                            <th tooltip_id="purchaseLineCollectData.batch_name" id="batch_name"
+                                class="tablesorter-header header tablesorter-headerUnSorted"
+                                style="width: 11.25%; text-align: left; user-select: none;" data-column="4" tabindex="0"
+                                scope="col" role="columnheader" aria-disabled="false" aria-controls="log"
+                                unselectable="on" aria-sort="none"
+                                aria-label="Batch navn: No sort applied, activate to apply an ascending sort">
+                                <div class="tablesorter-header-inner">Batch navn</div>
+                            </th>
+                            <th tooltip_id="purchaseLineCollectData.currency_id" id="currency_id"
+                                class="right tablesorter-header header tablesorter-headerUnSorted"
+                                style="width: 11.25%; text-align: right; padding-right: 10px; user-select: none;"
+                                data-column="5" tabindex="0" scope="col" role="columnheader" aria-disabled="false"
+                                aria-controls="log" unselectable="on" aria-sort="none"
+                                aria-label="Indkøbt i: No sort applied, activate to apply an ascending sort">
+                                <div class="tablesorter-header-inner">Indkøbt i<img class="tooltip"
+                                        src="./imgs/question.png" style="width: 14px; font-size: 10px;" id="237596977"
+                                        ref="purchaseLineCollectData.currency_id"></div>
+                            </th>
+                            <th tooltip_id="purchaseLineCollectData.recv_unit_prev_price_cy"
+                                id="recv_unit_prev_price_cy"
+                                class="right tablesorter-header header tablesorter-headerUnSorted"
+                                style="width: 11.25%; text-align: right; padding-right: 10px; user-select: none;"
+                                data-column="6" tabindex="0" scope="col" role="columnheader" aria-disabled="false"
+                                aria-controls="log" unselectable="on" aria-sort="none"
+                                aria-label="Pris i valuta: No sort applied, activate to apply an ascending sort">
+                                <div class="tablesorter-header-inner">Pris i valuta</div>
+                            </th>
+                            <th tooltip_id="purchaseLineCollectData.stockloc_name" id="stockloc_name"
+                                class="tablesorter-header header tablesorter-headerUnSorted"
+                                style="width: 11.25%; text-align: left; user-select: none;" data-column="7" tabindex="0"
+                                scope="col" role="columnheader" aria-disabled="false" aria-controls="log"
+                                unselectable="on" aria-sort="none"
+                                aria-label="Lagerlokation: No sort applied, activate to apply an ascending sort">
+                                <div class="tablesorter-header-inner">Lagerlokation</div>
+                            </th>
+                            <th tooltip_id="purchaseLineCollectData.line_metadata_1" id="line_metadata_1"
+                                class="tablesorter-header header tablesorter-headerUnSorted"
+                                style="width: 11.11%; text-align: left; user-select: none;" data-column="8" tabindex="0"
+                                scope="col" role="columnheader" aria-disabled="false" aria-controls="log"
+                                unselectable="on" aria-sort="none"
+                                aria-label="Note: No sort applied, activate to apply an ascending sort">
+                                <div class="tablesorter-header-inner">Note</div>
+                            </th>
+                        </tr>
+                        <tr id="filter-tr" class="tablesorter-ignoreRow" style="display:none;" role="row">
+                            <th class=" nosorter left" data-column="0" scope="col" role="columnheader"><input
+                                    type="search" placeholder="Filter" name="create_date_inp" id="create_date_inp"
+                                    value="" evalue="" style="" class="no-val "></th>
+                            <th class=" nosorter left" data-column="1" scope="col" role="columnheader"><input
+                                    type="search" placeholder="Filter" name="create_user_name_inp"
+                                    id="create_user_name_inp" value="" evalue="" style="" class="no-val "></th>
+                            <th class=" nosorter right" data-column="2" scope="col" role="columnheader"><input
+                                    type="search" placeholder="Filter" name="recv_units_f_inp" id="recv_units_f_inp"
+                                    value="" evalue="" style="" class="no-val "></th>
+                            <th class=" nosorter right" data-column="3" scope="col" role="columnheader"><input
+                                    type="search" placeholder="Filter" name="recv_unit_price_cy_inp"
+                                    id="recv_unit_price_cy_inp" value="" evalue="" style="" class="no-val "></th>
+                            <th class=" nosorter left" data-column="4" scope="col" role="columnheader"><input
+                                    type="search" placeholder="Filter" name="batch_name_inp" id="batch_name_inp"
+                                    value="" evalue="" style="" class="no-val "></th>
+                            <th class=" nosorter right" data-column="5" scope="col" role="columnheader"><input
+                                    type="search" placeholder="Filter" name="currency_id_inp" id="currency_id_inp"
+                                    value="" evalue="" style="" class="no-val "></th>
+                            <th class=" nosorter right" data-column="6" scope="col" role="columnheader"><input
+                                    type="search" placeholder="Filter" name="recv_unit_prev_price_cy_inp"
+                                    id="recv_unit_prev_price_cy_inp" value="" evalue="" style="" class="no-val "></th>
+                            <th class=" nosorter left" data-column="7" scope="col" role="columnheader"><input
+                                    type="search" placeholder="Filter" name="stockloc_name_inp" id="stockloc_name_inp"
+                                    value="" evalue="" style="" class="no-val "></th>
+                            <th class=" nosorter left" data-column="8" scope="col" role="columnheader"><input
+                                    type="search" placeholder="Filter" name="line_metadata_1_inp"
+                                    id="line_metadata_1_inp" value="" evalue="" style="" class="no-val "></th>
+                            <th class=" nosorter right" data-column="9" scope="col" role="columnheader"><input
+                                    type="hidden" placeholder="Filter" name="clear_filter" id="clear_filter"
+                                    class="no-val"><span placeholder="Filter" name="clear_filter" id="clear_filter"
+                                    style="" onclick="editTableFilter.clear_fields(this)"
+                                    class="no-val filter-clear-btn"><i class="icon-cancel"
+                                        style="margin-right: -3px; color: red;"></i></span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="group-folder" folder_id="0" aria-live="polite" aria-relevant="all">
+                        <tr class="" role="row">
+                            <td name="log_create_date" style="width:11.2%; text-align:left" class="sorter-date"
+                                sorter-val="2024-11-20 15:38:12.655">20/11/24 - 15:38</td>
+                            <td name="log_create_user_name" style="width:11.2%; text-align:left" class="">Lone</td>
+                            <td name="log_recv_units_f" style="width:11.2%; text-align:right; padding-right: 10px"
+                                class="">2,00</td>
+                            <td name="log_recv_unit_price_cy" style="width:11.2%; text-align:right; padding-right: 10px"
+                                class="">49,00</td>
+                            <td name="log_batch_name" style="width:11.2%; text-align:left" class=""><span
+                                    class="tl-link icon-popup pointer" func="batch_genobjShowBatches"
+                                    value="2923561"></span>100761 - 601</td>
+                            <td name="log_currency_id" style="width:11.2%; text-align:right; padding-right: 10px"
+                                class="">DKK</td>
+                            <td name="log_recv_unit_prev_price_cy"
+                                style="width:11.2%; text-align:right; padding-right: 10px" class="">49,00</td>
+                            <td name="log_stockloc_name" style="width:11.2%; text-align:left" class="">TRANSIT</td>
+                            <td name="log_line_metadata_1" style="width:11.1%; text-align:left" class=""></td>
+                        </tr>
+                        <tr class="sum-line static" role="row">
+                            <td name="log_create_date" style="width:11.2%; text-align:left" class="sorter-date"></td>
+                            <td name="log_create_user_name" style="width:11.2%; text-align:left" class=""></td>
+                            <td name="log_recv_units_f" style="width:11.2%; text-align:right; padding-right: 10px"
+                                class="">2,00</td>
+                            <td name="log_recv_unit_price_cy" style="width:11.2%; text-align:right; padding-right: 10px"
+                                class=""><i style="font-size:80%">Gns</i>&nbsp;&nbsp;49,00</td>
+                            <td name="log_batch_name" style="width:11.2%; text-align:left" class=""></td>
+                            <td name="log_currency_id" style="width:11.2%; text-align:right; padding-right: 10px"
+                                class=""></td>
+                            <td name="log_recv_unit_prev_price_cy"
+                                style="width:11.2%; text-align:right; padding-right: 10px" class=""></td>
+                            <td name="log_stockloc_name" style="width:11.2%; text-align:left" class=""></td>
+                            <td name="log_line_metadata_1" style="width:11.1%; text-align:left" class=""></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="tablesorter-infoOnly" role="row">
+                            <th class="tabel-actions" colspan="100" data-column="0"><span
+                                    class="resize-table icon-v2 icon-resize-horizontal-2 tooltip"
+                                    data-tooltip="21998"></span><span class="resize-table-cancel icon-cancel tooltip"
+                                    style="display:none; color: #ff4460" data-tooltip="21997"></span><span
+                                    class="excel-csv-export icon-export tooltip" data-tooltip="239933"></span></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <p></p>
+            <p class="brk-next"></p>
+        </div>
+        <div id="purchase_line_item_doc" class="tab_content " style="display: none">
+            <p></p>
+            <p class="brk-next"></p>
+            <hr>
+            <p></p>
+            <p class="brk-next"><span class="no-print" style="margin-top: 20px; display: inline-block;">Tilføj
+                    dokumenter</span><br><input type="file" name="upload_file" multiple="multiple" disabled="disabled">
+            </p>
+            <p style="margin-bottom: 20px"></p>
+            <p class="brk-next"><input type="hidden" name="last_update" id="last_update"
+                    value="2024-11-29 10:49:08.041"></p>
+            <p class="brk-next"></p>
+        </div>
+        <div id="addCreateUpdateInfo" class="tab_content " style="display: none">
+            <p></p>
+            <p class="brk-next"><span tooltip_id="purchaseLineCollectData.update_date">Opdateret</span><br><input
+                    type="text" name="update_date" value="29/11/24 - 10:49" readonly="" tabindex="-1"
+                    disabled="disabled"></p>
+            <p class="brk-next"><span tooltip_id="purchaseLineCollectData.update_user_name">Opdateret
+                    af</span><br><input type="text" name="update_user_name" value="TRACELINK TESTKONTO (11)" readonly=""
+                    tabindex="-1" disabled="disabled"></p>
+            <p class="brk-next"><span tooltip_id="purchaseLineCollectData.create_date">Oprettet</span><br><input
+                    type="text" name="create_date" value="20/11/24 - 15:36" readonly="" tabindex="-1"
+                    disabled="disabled"></p>
+            <p class="brk-next"><span tooltip_id="purchaseLineCollectData.create_user_name">Oprettet af</span><br><input
+                    type="text" name="create_user_name" value="Lone" readonly="" tabindex="-1" disabled="disabled"></p>
+        </div>
+    </div>
+    <div id="edit_win_2" class="edit_win" style="height: 1053px; min-width: fit-content; display: none; width: 1099px;">
+    </div>
+</form>
