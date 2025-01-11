@@ -1,13 +1,20 @@
 
 const CheckboxInput = Vue.defineComponent({
-
     template: `
-        <div class="newcheckbox" style="display: flex">
-            <input type="checkbox" :checked="modelValue == 1" @click="$emit('update:modelValue', $event.target.checked ? 1 : 0)" />             
+        <div style="display: flex">
+            <button 
+                style="width: 28px; height: 28px; border-radius: 0px; border: 1px solid gray; background: light-gray;"
+                @click="toggle"
+            >
+                <span v-html="isActive ? '&#x2713;' : ''" style="font-size: 20px;"></span>
+            </button>
+            <!--
+        <input type="custom-checkbox" :checked="modelValue == 1" @click="$emit('update:modelValue', $event.target.checked ? 1 : 0)" />             
+            -->    
             <div>
                 <label>{{ label }}</label>
                 <img v-if="tooltip_id" class="tooltip" src="./imgs/question.png" style="width: 14px; font-size: 10px;" :id="tooltip_id" alt="Tooltip">
-            </div>                
+            </div>
         </div>
     `,
     props: {
@@ -27,7 +34,17 @@ const CheckboxInput = Vue.defineComponent({
     },
     setup(props) {
 
-        return {  };
+        const isActive = Vue.ref(props.modelValue === 1);
+
+        const toggle = () => {
+            isActive.value = !isActive.value;
+            emit('update:modelValue', isActive.value ? 1 : 0);
+        };
+
+        return {
+            isActive,
+            toggle
+        };
     }
 
 });
@@ -76,7 +93,7 @@ const TextInput = Vue.defineComponent({
 
 const NumberInput = Vue.defineComponent({
     template: `
-        <div style="display: flex; flex-direction: column;">
+        <div ref="container" style="display: flex; flex-direction: column;">
             <div>
                 <label>{{ label }}</label>
                 <img v-if="tooltip_id" class="tooltip" src="./imgs/question.png" style="width: 14px; font-size: 10px;" :id="tooltip_id" alt="Tooltip">
@@ -140,7 +157,7 @@ const Select2 = Vue.defineComponent({
                 <label>{{ label }}</label>
                 <img v-if="tooltip_id" class="tooltip" src="./imgs/question.png" style="width: 14px; font-size: 10px;" :id="tooltip_id" alt="Tooltip">
             </div>                
-            <select :id="id" @click="$emit('update:modelValue', $event.target.value)">
+            <select :id="id" @click="$emit('update:modelValue', $event.target.value)" ref="select">
                 <option v-for="option in options" :selected="option.value == modelValue">{{ option.text }}</option>
             </select>
         </div>    
@@ -170,9 +187,16 @@ const Select2 = Vue.defineComponent({
         },
     },
     setup(props) {
+
         const id = 'select2-' + Math.random().toString(36);
-        onMounted = () => $('#' + id).select2(props.configuration);
-        return { id };
+        const select = Vue.ref(null);
+
+        Vue.onMounted(() => {
+            const result = $(select.value);
+            result.select2({ dropdownParent: result.parent() });
+        });
+
+        return { id, select };
     }
 });
 

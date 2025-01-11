@@ -13,11 +13,39 @@
     </head>
 
     <body>
-        <div id="app"></div>
+        <h1>Vue 3 with Shadow DOM</h1>
+        <select id="pulimut">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <div id="shadow-dom"></div>
     </body>
 
     <script>
       
+        $(document).ready(function() {
+            $('#pulimut').select2();
+        });
+
+        const shadow_dom_root = document.getElementById('shadow-dom').attachShadow({ mode: 'open' });
+
+        // Inject the CSS file into the shadow DOM
+        const linkElement = document.createElement('link');
+        linkElement.setAttribute('rel', 'stylesheet');
+        linkElement.setAttribute('href', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css');
+        shadow_dom_root.appendChild(linkElement);
+
+        const text = document.createElement('p');
+        text.textContent = 'This is a shadow DOM';
+        shadow_dom_root.appendChild(text);
+
+        // Create a container for the Vue app
+        const appContainer = document.createElement('div');
+        appContainer.id = 'app';
+        shadow_dom_root.appendChild(appContainer);
+
         const app = Vue.createApp({
             template: `<PurchaseLineView :purchase_line="purchase_line"></PurchaseLineView>`,
             components: {
@@ -37,7 +65,8 @@
             }
         });
 
-        app.mount('#app')
+        app.mount(appContainer);
 
-      </script>
+    </script>
+
 </html>
