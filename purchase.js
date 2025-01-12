@@ -11,7 +11,8 @@ const GoodsReceptionForm = Vue.defineComponent({
         TextInput,
         NumberInput,
         CheckboxInput,
-        Select2
+        Select2,
+        CustomFieldsPanel
     },
     template: `
         <InvocationForm @submit="submit">
@@ -51,6 +52,7 @@ const GoodsReceptionForm = Vue.defineComponent({
                 label="Batchnavn"
                 v-model="parameters.batch_name"
             />    
+            <CustomFieldsPanel :fields="custom_fields" />
         </InvocationForm>
     `,
     setup(props) {
@@ -59,6 +61,12 @@ const GoodsReceptionForm = Vue.defineComponent({
 
         const parameters = Vue.reactive({ final: 0, recv_f: 0, negative: 0, stockloc_id: null, batch_name: '' });
 
+        const custom_fields = Vue.reactive([
+            { label: "Custom field 1", type: "string", value: "My value" },
+            { label: "Custom field 2", type: "select", value: "", options: [ { value: 1, text: "Option 1" }, { value: 2, text: "Option 2" } ] },
+            { label: "Custom field 3", type: "number", value: 117 }
+        ]);
+
         const receive_remainder = Vue.ref(0);
         Vue.watch(receive_remainder, (value) => parameters.recv_f = value === 1 ? props.purchase_line.missing_f : 0);
 
@@ -66,7 +74,7 @@ const GoodsReceptionForm = Vue.defineComponent({
             console.log("Submit goods receipt", goods_receipt);
         }
 
-        return { parameters, receive_remainder, submit, locations };
+        return { parameters, receive_remainder, submit, locations, custom_fields };
     }
 });
 

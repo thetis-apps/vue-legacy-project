@@ -200,6 +200,31 @@ const Select2 = Vue.defineComponent({
     }
 });
 
+const CustomFieldsPanel = Vue.defineComponent({
+    components: {
+        TextInput,
+        Select2,
+        NumberInput
+    },
+    template: `
+        <div v-for="field in fields" style="display: flex; flex-direction: column; margin: 10px;">
+            <TextInput v-if="field.type == 'string'" :label="field.label" v-model="field.value" />
+            <Select2 v-if="field.type == 'select'" :label="field.label" v-model="field.value" :options="field.options" />
+            <NumberInput v-if="field.type == 'number'" :label="field.label" v-model="field.value" />
+        </div>
+    `,
+    props: {
+        fields: {
+            type: Array,
+            required: true
+        }
+    },
+    setup(props) {
+
+        return {  };
+    }
+});
+
 const EditForm = Vue.defineComponent({
     components: {
         SubmitButton
