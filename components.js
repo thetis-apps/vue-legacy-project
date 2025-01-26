@@ -49,6 +49,40 @@ const CheckboxInput = Vue.defineComponent({
 
 });
 
+const SearchInput = Vue.defineComponent({
+
+    template: `
+        <div style="display: flex; flex-direction: column;">
+            <input 
+                :id="id"
+                type="text" 
+                :value="modelValue" 
+                @input="$emit('update:modelValue', $event.target.value)"
+                placeholder="Søg..." 
+            />             
+        </div>
+    `,
+    props: {
+        id: {
+            type: String,
+            required: true
+        },
+        label: {
+            type: String,
+            required: true
+        },
+        modelValue: {
+            type: String,
+            required: true
+        }
+    },
+    setup(props) {
+        
+        return {  };
+    }
+
+});
+
 const TextInput = Vue.defineComponent({
     template: `
         <div style="display: flex; flex-direction: column;">
@@ -254,4 +288,5 @@ const InvocationForm = Vue.defineComponent({
         </form>
     `,
 });
+
 

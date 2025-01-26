@@ -1,4 +1,7 @@
 
+
+
+
 const GoodsReceptionForm = Vue.defineComponent({
     props: {
         purchase_line: {
@@ -136,6 +139,101 @@ const EditPurchaseLineForm = Vue.defineComponent({
     }
 });
 
+const NumberInputCell = Vue.defineComponent({
+    props: {
+        modelValue: {
+            type: Number,
+            required: true
+        }
+    },
+    template: `
+        <input 
+            type="number" 
+            :value="modelValue" 
+            @input="$emit('update:modelValue', $event.target.value)" 
+            style="width: 5em; text-align: right;"
+        />
+    `,
+    setup() {
+        
+        return {  };
+    }
+});
+
+const GoodsReceptionTableForm = Vue.defineComponent({
+    components: {
+        SearchInput,
+        NumberInputCell
+    },
+    template: `
+        <form @submit.prevent="submit">
+            <div>
+                <SearchInput 
+                    v-model="search_expression"  
+                    label="Søg" 
+                    id="search"
+                    style="width: 20em;"
+                />
+            </div>
+            <div style="overflow-y: scroll; height: 100px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Leverandørnummer</th>
+                            <th>Varenavn</th>
+                            <th>Antal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="line in filtered_lines">
+                            <td>{{ line.supplier_number }}</td>
+                            <td>{{ line.item_name }}</td>
+                            <td>
+                                <NumberInputCell v-model="line.quantity" min="0.00" step="0.01" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    `,
+    props: {
+        purchase_lines: {
+            type: Array,
+            required: true
+        }
+    },
+    setup(props) {
+
+        const search_expression = Vue.ref('');
+
+        const lines = [];
+        for (const purchase_line of props.purchase_lines) {
+            lines.push({ ...purchase_line, quantity: 0 });
+        }
+
+        const filtered_lines = Vue.computed(() => {
+            return lines.filter((line) => {
+                return (
+                    line.supplier_number.includes(search_expression.value) ||
+                    line.item_name.includes(search_expression.value)
+                );
+            });
+        }); 
+
+        const submit = () => {
+            for (const line of filtered_lines.value) {
+                console.log("Submit goods receipt", line.quantity);
+            }
+        }
+
+        return { search_expression, submit, filtered_lines };
+    }
+});
+
 const PurchaseLineView = Vue.defineComponent({
     props: {
         purchase_line: {
@@ -145,7 +243,8 @@ const PurchaseLineView = Vue.defineComponent({
     },
     components: {
         EditPurchaseLineForm,
-        GoodsReceptionForm
+        GoodsReceptionForm,
+        GoodsReceptionTableForm
     },
     template: `
         <div>
@@ -153,9 +252,17 @@ const PurchaseLineView = Vue.defineComponent({
             <hr />
             <GoodsReceptionForm :purchase_line="purchase_line" />
         </div>
+        <GoodsReceptionTableForm 
+            :purchase_lines="[ 
+                { purchase_line_id: 867876, supplier_number: '4711', item_name: 'Pulimut' },
+                { purchase_line_id: 867877, supplier_number: '4712', item_name: 'Hytlihy'},
+                { purchase_line_id: 867878, supplier_number: '4713', item_name: 'Kulimut'},
+                { purchase_line_id: 867879, supplier_number: '4711', item_name: 'Mutlykru' },
+            ]" />
     `,
     setup() {
 
         return {  };
     }
 });
+
