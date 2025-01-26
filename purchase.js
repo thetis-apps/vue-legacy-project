@@ -150,7 +150,7 @@ const NumberInputCell = Vue.defineComponent({
         <input 
             type="number" 
             :value="modelValue" 
-            @input="$emit('update:modelValue', $event.target.value)" 
+            @input="$emit('update:modelValue', Number($event.target.value))" 
             style="width: 5em; text-align: right;"
         />
     `,
@@ -179,16 +179,18 @@ const GoodsReceptionTableForm = Vue.defineComponent({
                 <table>
                     <thead>
                         <tr>
-                            <th>Leverandørnummer</th>
+                            <th>Varenummer</th>
                             <th>Varenavn</th>
-                            <th>Antal</th>
+                            <th style="text-align: right;">Antal modtaget</th>
+                            <th style="text-align: right;">Antal</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="line in filtered_lines" :key="line.purchase_line_id">
-                            <td>{{ line.supplier_number }}</td>
+                            <td>{{ line.item_number }}</td>
                             <td>{{ line.item_name }}</td>
-                            <td>
+                            <td style="text-align: right;">{{ line.quantity_received }}</td>
+                            <td style="text-align: right;"> 
                                 <NumberInputCell v-model="line.quantity" min="0.00" step="0.01" />
                             </td>
                         </tr>
@@ -210,23 +212,32 @@ const GoodsReceptionTableForm = Vue.defineComponent({
 
         const search_expression = Vue.ref('');
 
-        const lines = [];
+        const lines = Vue.reactive([]);
         for (const purchase_line of props.purchase_lines) {
             lines.push({ ...purchase_line, quantity: 0 });
         }
 
+        /**
+         * Filtered lines computed property. Uses search expression to filter lines. 
+         * Simple scoring system is used to sort the lines.
+         */
         const filtered_lines = Vue.computed(() => {
-            return lines.filter((line) => {
-                return (
-                    line.supplier_number.includes(search_expression.value) ||
-                    line.item_name.includes(search_expression.value)
-                );
-            });
+            return lines
+                .map((line) => {
+                    let score = line.item_number.includes(search_expression.value) ? 2 : 0;
+                    score = line.item_name.includes(search_expression.value) ? score + 1 : score;
+                    return ({ ...line, score })
+                })
+                .filter((line) => line.score > 0)
+                .sort((a, b) => b.score - a.score);
         }); 
 
         const submit = () => {
             for (const line of filtered_lines.value) {
-                console.log("Submit goods receipt", line.quantity);
+                const { quantity, purchase_line_id } = line;
+                const goods_receipt_parameters = { quantity, purchase_line_id };
+                console.log("Submit goods receipt", goods_receipt_parameters);
+                lines.filter((line) => line.purchase_line_id === purchase_line_id)[0].quantity_received += quantity;
             }
         }
 
@@ -254,11 +265,12 @@ const PurchaseLineView = Vue.defineComponent({
         </div>
         <GoodsReceptionTableForm 
             :purchase_lines="[ 
-                { purchase_line_id: 867876, supplier_number: '4711', item_name: 'Pulimut' },
-                { purchase_line_id: 867877, supplier_number: '4712', item_name: 'Hytlihy'},
-                { purchase_line_id: 867878, supplier_number: '4713', item_name: 'Kulimut'},
-                { purchase_line_id: 867879, supplier_number: '4711', item_name: 'Mutlykru' },
-            ]" />
+                { purchase_line_id: 867876, item_number: '4711', item_name: '4712 Pulimut', quantity_received: 0 },
+                { purchase_line_id: 867877, item_number: '4712', item_name: '4713 Hytlihy', quantity_received: 0 },
+                { purchase_line_id: 867878, item_number: '4713', item_name: 'Kulimut', quantity_received: 0 },
+                { purchase_line_id: 867879, item_number: '4714', item_name: 'Mutlykru', quantity_received: 0 },
+            ]" 
+        />
     `,
     setup() {
 
