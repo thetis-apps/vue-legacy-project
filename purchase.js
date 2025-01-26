@@ -166,6 +166,9 @@ const GoodsReceptionTableForm = Vue.defineComponent({
         NumberInputCell
     },
     template: `
+        <div v-if="in_progress" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.5); z-index: 100;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">Modtager varer - vent venligst...</div>
+        </div>
         <form @submit.prevent="submit">
             <div>
                 <SearchInput 
@@ -212,6 +215,8 @@ const GoodsReceptionTableForm = Vue.defineComponent({
 
         const search_expression = Vue.ref('');
 
+        const in_progress = Vue.ref(false);
+
         const lines = Vue.reactive([]);
         for (const purchase_line of props.purchase_lines) {
             lines.push({ ...purchase_line, quantity: 0 });
@@ -232,16 +237,22 @@ const GoodsReceptionTableForm = Vue.defineComponent({
                 .sort((a, b) => b.score - a.score);
         }); 
 
-        const submit = () => {
-            for (const line of filtered_lines.value) {
+        const submit = async () => {
+            in_progress.value = true;
+            const lines_to_receive = filtered_lines.value.filter((line) => line.quantity > 0);
+            for (const line of lines_to_receive) {
                 const { quantity, purchase_line_id } = line;
                 const goods_receipt_parameters = { quantity, purchase_line_id };
                 console.log("Submit goods receipt", goods_receipt_parameters);
+
+                await new Promise((resolve) => setTimeout(resolve, 1000));
+
                 lines.filter((line) => line.purchase_line_id === purchase_line_id)[0].quantity_received += quantity;
             }
+            in_progress.value = false;
         }
 
-        return { search_expression, submit, filtered_lines };
+        return { search_expression, submit, filtered_lines, in_progress };
     }
 });
 
