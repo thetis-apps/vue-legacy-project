@@ -185,7 +185,7 @@ const GoodsReceptionTableForm = Vue.defineComponent({
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="line in filtered_lines">
+                        <tr v-for="line in filtered_lines" :key="line.purchase_line_id">
                             <td>{{ line.supplier_number }}</td>
                             <td>{{ line.item_name }}</td>
                             <td>
