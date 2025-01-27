@@ -256,6 +256,19 @@ const GoodsReceptionTableForm = Vue.defineComponent({
     }
 });
 
+const sanitizeData = (data) => {    
+    for (const datum of data) {
+        for (const key in datum) {
+            if (key.endsWith('_f') || key.endsWith('_cy')) {
+                datum[key] = Number(datum[key]);
+            }
+            if (key.endsWith('_id') && datum[key] === '0') {
+                datum[key] = null;
+            }
+        }
+    }
+}
+
 const PurchaseLineView = Vue.defineComponent({
     props: {
         purchase_line: {
