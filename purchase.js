@@ -160,10 +160,12 @@ const NumberInputCell = Vue.defineComponent({
     }
 });
 
+
 const GoodsReceptionTableForm = Vue.defineComponent({
     components: {
         SearchInput,
-        NumberInputCell
+        NumberInputCell,
+        VirtualScroller
     },
     template: `
         <div v-if="in_progress" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.5); z-index: 100;">
@@ -178,27 +180,23 @@ const GoodsReceptionTableForm = Vue.defineComponent({
                     style="width: 20em;"
                 />
             </div>
-            <div style="overflow-y: scroll; height: 100px;">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Varenummer</th>
-                            <th>Varenavn</th>
-                            <th style="text-align: right;">Antal modtaget</th>
-                            <th style="text-align: right;">Antal</th>
+            <div style="overflow-y: scroll; height: 60px;">
+                <VirtualScroller
+                    :items="filtered_lines"
+                    :itemHeight="30"
+                >
+                    <template #default="{ item }">
+                        <div style="display: flex; flex-direction: row;">
+                            <div style="width: 10em;">{{ item.item_number }}</div>
+                            <div style="width: 20em;">{{ item.item_name }}</div>
+                            <div style="width: 10em; text-align: right;">{{ item.quantity_received }}</div>
+                            <div style="width: 12em; text-align: right;"> 
+                                <NumberInputCell v-model="item.quantity" min="0.00" step="0.01" />
+                            </div>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="line in filtered_lines" :key="line.purchase_line_id">
-                            <td>{{ line.item_number }}</td>
-                            <td>{{ line.item_name }}</td>
-                            <td style="text-align: right;">{{ line.quantity_received }}</td>
-                            <td style="text-align: right;"> 
-                                <NumberInputCell v-model="line.quantity" min="0.00" step="0.01" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    </template>
+
+                </VirtualScroller>
             </div>
             <div>
                 <button type="submit">Submit</button>

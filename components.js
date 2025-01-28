@@ -1,3 +1,66 @@
+const VirtualScroller = Vue.defineComponent({
+    props: {
+        items: {
+            type: Array,
+            required: true
+        },
+        itemHeight: {
+            type: Number,
+            required: true
+        },
+        buffer: {
+            type: Number,
+            default: 5
+        }
+    },
+    data() {
+        return {
+            startIndex: 0,
+            endIndex: 0,
+            scrollTop: 0
+        };
+    },
+    computed: {
+        visibleItems() {
+            return this.items.slice(this.startIndex, this.endIndex);
+        },
+        totalHeight() {
+            return this.items.length * this.itemHeight;
+        }
+    },
+    watch: {
+        scrollTop() {
+            this.updateVisibleItems();
+        }
+    },
+    mounted() {
+        this.updateVisibleItems();
+    },
+    methods: {
+        updateVisibleItems() {
+            const visibleCount = Math.ceil(this.$refs.scroller.clientHeight / this.itemHeight);
+            this.startIndex = Math.max(0, Math.floor(this.scrollTop / this.itemHeight) - this.buffer);
+            this.endIndex = Math.min(this.items.length, this.startIndex + visibleCount + this.buffer * 2);
+        },
+        handleScroll(event) {
+            this.scrollTop = event.target.scrollTop;
+        }
+    },
+    template: `
+        <div ref="scroller" @scroll="handleScroll" style="overflow-y: auto; height: 400px;">
+            <div :style="{ height: totalHeight + 'px', position: 'relative' }">
+                <div
+                    v-for="(item, index) in visibleItems"
+                    :key="index"
+                    :style="{ position: 'absolute', top: (startIndex + index) * itemHeight + 'px', height: itemHeight + 'px', width: '100%' }"
+                >
+                    <slot :item="item"></slot>
+                </div>
+            </div>
+        </div>
+    `
+});
+
 
 const CheckboxInput = Vue.defineComponent({
     template: `
